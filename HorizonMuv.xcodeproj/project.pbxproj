@@ -13,6 +13,11 @@
 		9A06443928FA91B500A552B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A06443828FA91B500A552B6 /* Assets.xcassets */; };
 		9A06443C28FA91B500A552B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A06443A28FA91B500A552B6 /* LaunchScreen.storyboard */; };
 		9A06444928FC1A9500A552B6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06444828FC1A9500A552B6 /* UIView+Extension.swift */; };
+		9A06444B28FC1B5500A552B6 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06444A28FC1B5500A552B6 /* APIService.swift */; };
+		9A06444D28FC1F7800A552B6 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06444C28FC1F7800A552B6 /* NetworkHelper.swift */; };
+		9A06444F28FC2A0000A552B6 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06444E28FC2A0000A552B6 /* APIRouter.swift */; };
+		9A06445228FC352800A552B6 /* SearchMovieResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06445128FC352800A552B6 /* SearchMovieResponseDTO.swift */; };
+		9A06445528FC3A2C00A552B6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9A06445428FC3A2C00A552B6 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,10 @@
 		9A06443B28FA91B500A552B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A06443D28FA91B500A552B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A06444828FC1A9500A552B6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		9A06444A28FC1B5500A552B6 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		9A06444C28FC1F7800A552B6 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		9A06444E28FC2A0000A552B6 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		9A06445128FC352800A552B6 /* SearchMovieResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A06445528FC3A2C00A552B6 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +66,7 @@
 		9A06442E28FA91B400A552B6 /* HorizonMuv */ = {
 			isa = PBXGroup;
 			children = (
+				9A06445028FC350E00A552B6 /* Models */,
 				9A06444728FC1A2100A552B6 /* Utilities */,
 				9A06444628FC18E000A552B6 /* Services */,
 				9A06442F28FA91B400A552B6 /* AppDelegate.swift */,
@@ -71,6 +82,7 @@
 		9A06444628FC18E000A552B6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9A06444A28FC1B5500A552B6 /* APIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -79,8 +91,18 @@
 			isa = PBXGroup;
 			children = (
 				9A06444828FC1A9500A552B6 /* UIView+Extension.swift */,
+				9A06444C28FC1F7800A552B6 /* NetworkHelper.swift */,
+				9A06444E28FC2A0000A552B6 /* APIRouter.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		9A06445028FC350E00A552B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9A06445128FC352800A552B6 /* SearchMovieResponseDTO.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +121,9 @@
 			dependencies = (
 			);
 			name = HorizonMuv;
+			packageProductDependencies = (
+				9A06445428FC3A2C00A552B6 /* Alamofire */,
+			);
 			productName = HorizonMuv;
 			productReference = 9A06442C28FA91B400A552B6 /* HorizonMuv.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +152,9 @@
 				Base,
 			);
 			mainGroup = 9A06442328FA91B400A552B6;
+			packageReferences = (
+				9A06445328FC3A2C00A552B6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 9A06442D28FA91B400A552B6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -154,8 +182,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A06443428FA91B400A552B6 /* MainScreen.swift in Sources */,
+				9A06444B28FC1B5500A552B6 /* APIService.swift in Sources */,
 				9A06443028FA91B400A552B6 /* AppDelegate.swift in Sources */,
 				9A06444928FC1A9500A552B6 /* UIView+Extension.swift in Sources */,
+				9A06445228FC352800A552B6 /* SearchMovieResponseDTO.swift in Sources */,
+				9A06444F28FC2A0000A552B6 /* APIRouter.swift in Sources */,
+				9A06444D28FC1F7800A552B6 /* NetworkHelper.swift in Sources */,
 				9A06443228FA91B400A552B6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9A06445328FC3A2C00A552B6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9A06445428FC3A2C00A552B6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A06445328FC3A2C00A552B6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9A06442428FA91B400A552B6 /* Project object */;
 }
