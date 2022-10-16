@@ -40,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A06446828FC8B4200A552B6 /* Kingfisher in Frameworks */,
 				9A06445528FC3A2C00A552B6 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +124,7 @@
 			name = HorizonMuv;
 			packageProductDependencies = (
 				9A06445428FC3A2C00A552B6 /* Alamofire */,
+				9A06446728FC8B4200A552B6 /* Kingfisher */,
 			);
 			productName = HorizonMuv;
 			productReference = 9A06442C28FA91B400A552B6 /* HorizonMuv.app */;
@@ -154,6 +156,7 @@
 			mainGroup = 9A06442328FA91B400A552B6;
 			packageReferences = (
 				9A06445328FC3A2C00A552B6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9A06446628FC8B4200A552B6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 9A06442D28FA91B400A552B6 /* Products */;
 			projectDirPath = "";
@@ -414,6 +417,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		9A06446628FC8B4200A552B6 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -421,6 +432,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9A06445328FC3A2C00A552B6 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		9A06446728FC8B4200A552B6 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A06446628FC8B4200A552B6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
