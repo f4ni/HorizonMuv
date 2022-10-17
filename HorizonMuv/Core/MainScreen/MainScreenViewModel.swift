@@ -37,6 +37,7 @@ extension MainScreenViewModel: MainScreenViewModelInterface{
         view?.configureVC()
         view?.configureSearchBar()
         view?.configureCollectionView()
+        view?.addNoDataImageView()
     }
 
     func retrieveSearchedMovies(word: String) {
@@ -47,7 +48,16 @@ extension MainScreenViewModel: MainScreenViewModelInterface{
             case .success(let data):
                 self.movies = data._movies
                 self.view?.reloadCollectionView()
+                if data.movies == nil{
+                    self.view?.showAlert(with: "Oops!", message: "Aradığın kriterde birşey bulamadık!")
+                    self.view?.addNoDataImageView()
+                }
+                else{
+                    self.view?.removeNoDataImageView()
+                }
+                
             case .failure(let error):
+                self.view?.showAlert(with: "Oops!", message: error.localizedDescription)
                 print(error.localizedDescription)
             }
         }
