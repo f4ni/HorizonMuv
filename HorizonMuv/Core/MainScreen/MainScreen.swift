@@ -10,6 +10,7 @@ import UIKit
 protocol MainScreenInterface: AnyObject {
     func configureVC()
     func configureCollectionView()
+    func configureSearchBar()
     func reloadCollectionView()
 }
 
@@ -18,6 +19,7 @@ class MainScreen: UIViewController {
     private let viewModel = MainScreenViewModel()
     
     private var collectionView: UICollectionView!
+    private var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,20 @@ extension MainScreen: MainScreenInterface{
         view.backgroundColor = .systemBackground
     }
 
+    func configureSearchBar() {
+        searchBar = UISearchBar(frame: .zero)
+        view.addSubview(searchBar)
+        
+        searchBar.delegate = self
+        
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([ searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                                      searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                                      searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                                      searchBar.heightAnchor.constraint(equalToConstant: 36)
+                                    ])
+    }
+    
     func configureCollectionView() {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: UIHelper.createMainCollectionViewFlowLayout())
         
@@ -65,5 +81,21 @@ extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
         cell.setCell(movie: movie)
         
         return cell
+    }
+extension MainScreen: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text, text.count > 2{
+            viewModel.retrieveSearchedMovies(word: text)
+        }
+        else {
+            viewModel.clearData()
+        }
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            viewModel.clearData()
+        }
     }
 }

@@ -12,6 +12,7 @@ protocol MainScreenViewModelInterface{
 
     func viewDidLoad()
     func retrieveSearchedMovies(word: String)
+    func clearData()
 }
 
 final class MainScreenViewModel{
@@ -34,9 +35,8 @@ extension MainScreenViewModel: MainScreenViewModelInterface{
    
     func viewDidLoad(){
         view?.configureVC()
+        view?.configureSearchBar()
         view?.configureCollectionView()
-        
-        retrieveSearchedMovies(word: "hell")
     }
 
     func retrieveSearchedMovies(word: String) {
@@ -53,4 +53,9 @@ extension MainScreenViewModel: MainScreenViewModelInterface{
         }
     }
       
+    func clearData() {
+        movies.removeAll()
+        self.view?.reloadCollectionView()
+        view?.addNoDataImageView()
+    }
 }
