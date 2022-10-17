@@ -12,15 +12,14 @@ enum APIRouter: URLRequestConvertible {
     
     case searchMovie(word: String)
     case posterImage(url: String)
+    case moviewDetail(id: String)
     
-    static func movies(page: Int) -> String {
-        "https://www.omdbapi.com/?apikey=\(page)&"
-    }
+    private var omdbURL: String { "https://www.omdbapi.com" }
     
     private var baseURL: String {
         switch self {
-        case .searchMovie:
-            return "https://www.omdbapi.com"
+        case .searchMovie, .moviewDetail:
+            return omdbURL
         case .posterImage(let url):
             return url
         }
@@ -32,7 +31,7 @@ enum APIRouter: URLRequestConvertible {
     
     private var path: String {
         switch self {
-        case .searchMovie:
+        case .searchMovie, .moviewDetail:
             return "/?apikey=\(apiKey)"
         case .posterImage:
             return ""
@@ -45,6 +44,8 @@ enum APIRouter: URLRequestConvertible {
             return [ "s" : word]
         case .posterImage:
             return nil
+        case .moviewDetail(let id):
+            return [ "i" : id]
         }
     }
 
@@ -56,7 +57,7 @@ enum APIRouter: URLRequestConvertible {
 
         switch self {
             
-        case .searchMovie:
+        case .searchMovie, .moviewDetail:
             var urlComponents = URLComponents()
 
             var parameters = [URLQueryItem]()

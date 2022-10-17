@@ -12,6 +12,7 @@ protocol MainScreenInterface: AnyObject {
     func configureCollectionView()
     func configureSearchBar()
     func reloadCollectionView()
+    func openDetailScreen(movie: Movie)
     func showAlert(with title: String, message: String)
     func addNoDataImageView()
     func removeNoDataImageView()
@@ -70,7 +71,17 @@ class MainScreen: UIViewController {
 }
 
 extension MainScreen: MainScreenInterface{
-
+    func openDetailScreen(movie: Movie) {
+        guard let vc = UIStoryboard(name: "MovieDetail", bundle: .main).instantiateInitialViewController(creator: { coder -> MovieDetailViewController? in
+            let viewModel = MovieDetailViewModel()
+            viewModel.movie = movie
+            return MovieDetailViewController(coder: coder, viewModel: viewModel)
+        })
+        else { return }
+                
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func configureVC() {
         title = "Find Your Movie 🎥"
         view.backgroundColor = .systemBackground
@@ -153,6 +164,13 @@ extension MainScreen: UICollectionViewDelegate, UICollectionViewDataSource{
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let imdbID = viewModel.movies[indexPath.item]._imdbID
+        viewModel.retrieveMovieDetail(imdbID: imdbID)
+    }
+}
+
 extension MainScreen: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text, text.count > 2{

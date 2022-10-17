@@ -12,6 +12,7 @@ protocol MainScreenViewModelInterface{
 
     func viewDidLoad()
     func retrieveSearchedMovies(word: String)
+    func retrieveMovieDetail(imdbID: String)
     func clearData()
 }
 
@@ -27,11 +28,23 @@ final class MainScreenViewModel{
 
 extension MainScreenViewModel {
     
-
-    
 }
 
 extension MainScreenViewModel: MainScreenViewModelInterface{
+    func retrieveMovieDetail(imdbID: String) {
+        service.retrieveMoviewDetail(imdbID: imdbID) { [weak self] resul in
+            guard let self else { return }
+            
+            switch resul {
+            case .success(let data):
+                self.view?.openDetailScreen(movie: data)
+            case .failure(let error):
+                print(error.localizedDescription)
+                break
+            }
+        }
+    }
+    
    
     func viewDidLoad(){
         view?.configureVC()
