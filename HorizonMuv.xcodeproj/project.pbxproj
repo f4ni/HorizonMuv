@@ -30,6 +30,7 @@
 		9A06447328FDE06600A552B6 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06447228FDE06600A552B6 /* MovieDetailViewModel.swift */; };
 		9A06448728FE769B00A552B6 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06448628FE769B00A552B6 /* SplashScreen.swift */; };
 		9A06448A28FE76EC00A552B6 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A06448928FE76EC00A552B6 /* SplashScreen.storyboard */; };
+		9A06449728FEB11600A552B6 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 9A06449628FEB11600A552B6 /* NVActivityIndicatorView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 			files = (
 				9A06446828FC8B4200A552B6 /* Kingfisher in Frameworks */,
 				9A06445528FC3A2C00A552B6 /* Alamofire in Frameworks */,
+				9A06449728FEB11600A552B6 /* NVActivityIndicatorView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +216,7 @@
 			packageProductDependencies = (
 				9A06445428FC3A2C00A552B6 /* Alamofire */,
 				9A06446728FC8B4200A552B6 /* Kingfisher */,
+				9A06449628FEB11600A552B6 /* NVActivityIndicatorView */,
 			);
 			productName = HorizonMuv;
 			productReference = 9A06442C28FA91B400A552B6 /* HorizonMuv.app */;
@@ -525,6 +528,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		9A06449528FEB11600A552B6 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -537,6 +548,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9A06446628FC8B4200A552B6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		9A06449628FEB11600A552B6 /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A06449528FEB11600A552B6 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

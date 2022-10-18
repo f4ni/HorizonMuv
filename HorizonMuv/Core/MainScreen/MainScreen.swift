@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 protocol MainScreenInterface: AnyObject {
     func configureVC()
@@ -16,6 +17,8 @@ protocol MainScreenInterface: AnyObject {
     func showAlert(with title: String, message: String)
     func addNoDataImageView()
     func removeNoDataImageView()
+    func showActivityIndicator()
+    func hideActivityIndicator()
 }
 
 class MainScreen: UIViewController {
@@ -24,6 +27,7 @@ class MainScreen: UIViewController {
     
     private var collectionView: UICollectionView!
     private var searchBar: UISearchBar!
+    private var activityIndicator: NVActivityIndicatorView!
     
     private var noDataView = NoDataView(frame: .zero)
     
@@ -38,6 +42,22 @@ class MainScreen: UIViewController {
 }
 
 extension MainScreen: MainScreenInterface{
+    func showActivityIndicator() {
+        activityIndicator = NVActivityIndicatorView(frame: .zero, type: .ballRotate, color: .darkGray)
+        view.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                     activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                                     activityIndicator.heightAnchor.constraint(equalToConstant: 100),
+                                     activityIndicator.widthAnchor.constraint(equalToConstant: 100)])
+        activityIndicator.startAnimating()
+
+    }
+    
+    func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
+    }
+    
     func openDetailScreen(movie: Movie) {
         guard let vc = UIStoryboard(name: "MovieDetail", bundle: .main).instantiateInitialViewController(creator: { coder -> MovieDetailViewController? in
             let viewModel = MovieDetailViewModel()

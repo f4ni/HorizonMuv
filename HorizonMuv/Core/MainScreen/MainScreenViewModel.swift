@@ -32,7 +32,9 @@ extension MainScreenViewModel {
 
 extension MainScreenViewModel: MainScreenViewModelInterface{
     func retrieveMovieDetail(imdbID: String) {
+        view?.showActivityIndicator()
         service.retrieveMoviewDetail(imdbID: imdbID) { [weak self] resul in
+            self?.view?.hideActivityIndicator()
             guard let self else { return }
             
             switch resul {
@@ -54,7 +56,9 @@ extension MainScreenViewModel: MainScreenViewModelInterface{
     }
 
     func retrieveSearchedMovies(word: String) {
+        view?.showActivityIndicator()
         service.retrieveMovies(for: word) { [weak self] result in
+            self?.view?.hideActivityIndicator()
             guard let self = self else { return }
             
             switch result {
