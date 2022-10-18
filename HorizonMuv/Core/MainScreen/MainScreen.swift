@@ -25,40 +25,7 @@ class MainScreen: UIViewController {
     private var collectionView: UICollectionView!
     private var searchBar: UISearchBar!
     
-    private var noDataView: UIView = {
-        let v = UIView(frame: .zero)
-        
-        let label = UILabel(frame: .zero)
-        label.text = "Listelenecek bir şey yok"
-        label.textAlignment = .center
-        
-        var config = UIImage.SymbolConfiguration(paletteColors: [.systemTeal, .systemGray5])
-        config = config.applying(UIImage.SymbolConfiguration(font: .systemFont(ofSize: 42)))
-        config = config.applying(UIImage.SymbolConfiguration(scale: .large))
-        
-        var noDataImageView =  UIImageView(image: UIImage(systemName: "lasso.and.sparkles", withConfiguration: config))
-        noDataImageView.contentMode = .scaleAspectFit
-        
-        v.addSubview(noDataImageView)
-        v.addSubview(label)
-        
-        noDataImageView.translatesAutoresizingMaskIntoConstraints = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([ noDataImageView.centerXAnchor.constraint(equalTo: v.centerXAnchor),
-                                      noDataImageView.centerYAnchor.constraint(equalTo: v.centerYAnchor),
-                                      noDataImageView.heightAnchor.constraint(equalToConstant: 72),
-                                      noDataImageView.widthAnchor.constraint(equalToConstant: 72)
-                                      ])
-        
-        NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: v.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: v.trailingAnchor),
-            label.topAnchor.constraint(equalTo: noDataImageView.bottomAnchor, constant: 12)
-        ])
-        
-        return v
-    }()
+    private var noDataView = NoDataView(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
