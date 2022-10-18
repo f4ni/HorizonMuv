@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        window?.rootViewController = UINavigationController(rootViewController: MainScreen())
+        window?.rootViewController = UIStoryboard(name: "SplashScreen", bundle: .main).instantiateInitialViewController()
         
         window?.makeKeyAndVisible()
     }
