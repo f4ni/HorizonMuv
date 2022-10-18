@@ -23,5 +23,6 @@ extension MovieDetailViewModel: MovieDetailViewModelInterface{
         view?.configureVC()
         view?.downloadPosterImage()
         view?.placeMovieData()
+        view?.sendFAEvent()
     }
 }

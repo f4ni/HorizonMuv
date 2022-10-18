@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseRemoteConfig
 import NVActivityIndicatorView
 
 protocol MainScreenInterface: AnyObject {

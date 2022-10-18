@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import FirebaseAnalytics
+
 protocol MoviewDetailViewControllerInterface: AnyObject {
     func configureVC()
     func downloadPosterImage()
     func placeMovieData()
+    func sendFAEvent()
 }
 
 class MovieDetailViewController: UIViewController {
@@ -43,6 +46,11 @@ class MovieDetailViewController: UIViewController {
 }
 
 extension MovieDetailViewController: MoviewDetailViewControllerInterface {
+    func sendFAEvent() {
+        Analytics.logEvent("page_view", parameters: nil)
+        
+    }
+    
     func configurePosterImageView() {
     }
     

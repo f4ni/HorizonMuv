@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>243496775648-v8c7lktfec72r0audtad2k1of3aj8iq3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.243496775648-v8c7lktfec72r0audtad2k1of3aj8iq3</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCYvIuVSgema-3ZpmWRnoLdbO3T6u7D_DM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>243496775648</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.fqi.HorizonMuv</string>
+	<key>PROJECT_ID</key>
+	<string>horizonmuv</string>
+	<key>STORAGE_BUCKET</key>
+	<string>horizonmuv.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:243496775648:ios:eea3d186164f5d3eaac585</string>
+</dict>
+</plist>
